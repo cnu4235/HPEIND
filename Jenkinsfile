@@ -20,7 +20,7 @@ pipeline {
 	stage ('Build') {
 		steps {
 			withMaven {
-			sh "maven clean"
+			sh 'maven clean'
 			}
 		}
 		}
