@@ -22,5 +22,10 @@ pipeline {
 			sh 'mvn clean package'
 			}
 		}
+	stage ('Skip Test') {
+		steps {
+			sh 'mvn package -Dskip.test = true'
+		}
+	}
     }
 }
