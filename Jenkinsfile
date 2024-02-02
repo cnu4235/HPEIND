@@ -27,7 +27,7 @@ pipeline {
 		steps {
 			
 			echo "building docker image"
-			sh 'docker build -it --name test/tomcat'
+			sh 'docker build -f dockerfile -t  tomcat'
 
 			}
 		}
