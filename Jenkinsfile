@@ -33,7 +33,7 @@ pipeline {
 		}
 	stage ('Push docker image innto dDockerhub') {
 		steps {
-			withDockerRegistry([ credentialsId: "Dockerhub", url: "https://hub.docker.com/repository/docker/cnu4235/myowncnu/general"]) {
+			withDockerRegistry([ credentialsId: "Dockerhub", url: "https://hub.docker.com/repository/docker/cnu4235/myowncnu" ]) {
  			sh 'docker push cnu4235/myowncnu:nginx'
 			}
 		}
