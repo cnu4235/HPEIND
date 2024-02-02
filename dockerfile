@@ -1,8 +1,2 @@
-version: '3'
-services:
-  web:
-    image: tomcat
-    ports:
-      - "8080:8080"
-    volumes:
-      - ./index.html:/usr/local/tomcat/webapps/test/index.html
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/index.html
