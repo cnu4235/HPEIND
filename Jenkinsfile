@@ -27,7 +27,7 @@ pipeline {
 		steps {
 			
 			echo "building docker image"
-			sh 'docker buildx test/tomcat:latest'
+			sh 'docker build -t test/tomcat:latest .'
 
 			}
 		}
