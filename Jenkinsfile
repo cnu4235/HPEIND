@@ -23,6 +23,14 @@ pipeline {
 			sh 'mvn clean package'
 			}
 		}
+	stage ('Build docker Image') {
+		steps {
+			
+			echo "building docker image"
+			sh 'docker build -it --name test/tomcat'
+
+			}
+		}
 
 	
     }
