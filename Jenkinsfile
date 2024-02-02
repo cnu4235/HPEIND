@@ -31,12 +31,14 @@ pipeline {
 			sh 'docker tag test/nginx cnu4235/myowncnu:nginx'
 			}
 		}
+
 	//stage ('Push docker image innto dDockerhub') {
 	//	steps {
 	//		withDockerRegistry([ credentialsId: "Dockerhub", url: "https://hub.docker.com/repository/docker/cnu4235/myowncnu/general"]) {
  	//		sh 'docker push cnu4235/myowncnu:nginx'
 	//		}		}
 	//}
+
 
 	
     }
