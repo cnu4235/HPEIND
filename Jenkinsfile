@@ -11,7 +11,7 @@ pipeline {
 			cleanWs()
 			}
 		}
-        stage('Checkout') {
+        stage('Checkout') 
             	steps {
 		   // checkout scm
                 git branch: 'main', changelog: false, credentialsId: 'a32543a6-a269-49f0-bee7-2ca724286117', url: 'https://github.com/cnu4235/HPEIND.git'
@@ -32,12 +32,14 @@ pipeline {
 			}
 		}
 
-	//stage ('Push docker image innto dDockerhub') {
-	//	steps {
-	//		withDockerRegistry([ credentialsId: "Dockerhub", url: "https://hub.docker.com/repository/docker/cnu4235/myowncnu/general"]) {
- 	//		sh 'docker push cnu4235/myowncnu:nginx'
-	//		}		}
-	//}
+	  stage ('Push docker image innto dDockerhub') {
+		steps {
+		withCredentials([string(credentialsId: 'dockerhub_PWD', variable: 'dockerhubcreds')]) {
+    			sh 'docker login -u cnu4235 -p ${dockerhubcreds}'
+                    }
+			sh 'docker push cnu4235/myowncnu:nginx'
+		}		
+	}
 
 	stage('Run Docker container on Jenkins Agent') {
 
